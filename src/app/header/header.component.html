@@ -1,1 +1,21 @@
-<p>header works!</p>
+<mat-toolbar class="bar" >
+    <mat-icon class="logo" routerLink="/">donut_small</mat-icon>
+    <span class="title" > BLOG APP</span>
+    <span class="example-spacer"></span>
+
+      <div style="margin-right: 70px">
+  <button class="font" style="margin-right: 20px;"
+          routerLink="/" mat-flat-button>MY PROFILE</button>
+  <button class="font" style="margin-right: 20px;"
+          routerLink="/" mat-flat-button>LOGOUT</button>
+      </div>
+
+
+      <div style="margin-right: 70px">
+    <button class="font" style="margin-right: 20px;"
+            routerLink="/" mat-flat-button>LOGIN</button>
+    <button class="font" style="margin-right: 20px;"
+            routerLink="sign-up" mat-flat-button>SIGN UP</button>
+      </div>
+</mat-toolbar>
+<router-outlet></router-outlet>
