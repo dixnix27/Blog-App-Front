@@ -1,0 +1,24 @@
+<mat-card class="row post" *ngFor="let post of posts">
+  <mat-card-subtitle style="margin-top: 8px">
+    <span> Posted {{post.duration}} by <b>{{post.userName}}</b></span>
+  </mat-card-subtitle>
+  <mat-card-title>
+    <hr/>
+    <div class="post-title">
+      <a class="postname">{{post.postName}}</a>
+    </div>
+  </mat-card-title>
+  <mat-card-content>
+    <p class="post-text">{{post.description}}</p>
+  </mat-card-content>
+  <hr />
+  <mat-card-footer style="margin-left: 5px">
+    <a class="btnCommments" role="button" style="text-decoration: none">
+      <mat-icon style="margin-right: 2px;"> comment</mat-icon>
+      Comments({{post.commentCount}})
+    </a>
+    <button class="font"
+            routerLink="login" mat-flat-button style="margin-left: 15px; margin-right: 5px">Read Post</button>
+      <app-like [post]="post"></app-like>
+  </mat-card-footer>
+</mat-card>

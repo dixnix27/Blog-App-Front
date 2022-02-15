@@ -16,29 +16,51 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthService} from "../services/auth.service";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { LoginComponent } from './auth/login/login.component';
+import {NgxWebstorageModule} from "ngx-webstorage";
+import { HomeComponent } from './home/home.component';
+import {TokenInterceptor} from "./TokenInterceptor";
+import { PostComponent } from './post/post.component';
+import { LikeComponent } from './like/like.component';
+import { SideBarComponent } from './side-bar/side-bar.component';
+import { CategoriesComponent } from './categories/categories.component';
+import {MatChipsModule} from "@angular/material/chips";
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SignupComponent
+    SignupComponent,
+    LoginComponent,
+    HomeComponent,
+    PostComponent,
+    LikeComponent,
+    SideBarComponent,
+    CategoriesComponent
   ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatButtonToggleModule,
-    MatButtonModule,
-    MatInputModule,
-    MatDividerModule,
-    ReactiveFormsModule,
-    MatSnackBarModule
-  ],
+    imports: [
+        HttpClientModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatCardModule,
+        MatButtonToggleModule,
+        MatButtonModule,
+        MatInputModule,
+        MatDividerModule,
+        ReactiveFormsModule,
+        MatSnackBarModule,
+        NgxWebstorageModule.forRoot(),
+        MatChipsModule
+    ],
   providers: [
-    AuthService
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
