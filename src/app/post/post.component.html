@@ -18,7 +18,7 @@
     <mat-label>Comments({{post.commentCount}})</mat-label>
 
     <button class="font"
-            routerLink="login" mat-flat-button style="margin-left: 15px; margin-right: 5px">Read Post</button>
+            (click)="goToPost(post.id)" mat-flat-button style="margin-left: 15px; margin-right: 5px">Read Post</button>
       <app-like [post]="post"></app-like>
   </mat-card-footer>
 </mat-card>

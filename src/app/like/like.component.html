@@ -1,7 +1,7 @@
-<button mat-icon-button style="color: #86c586">
+<button mat-icon-button [style.color]="post.upVote ? '#86c586' : ''" (click)="likePost()">
 <mat-icon style="margin: 0 10px">thumb_up</mat-icon>
 </button>
 {{post.voteCount}}
-<button mat-icon-button style="color: #c78181">
+<button mat-icon-button [style.color]="post.downVote ? '#c78181' : ''" (click)="disLikePost()">
   <mat-icon style="margin: 0 10px">thumb_down</mat-icon>
 </button>

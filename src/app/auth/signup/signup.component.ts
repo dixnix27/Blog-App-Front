@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {SignupRequest} from "./signupRequest";
 import {AuthService} from "../../../services/auth.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-signup',
@@ -16,7 +17,8 @@ export class SignupComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService:AuthService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private router: Router
   ) {
   }
 
@@ -39,6 +41,7 @@ export class SignupComponent implements OnInit {
 
     this.authService.signup(this.singup).subscribe(data=>{
     console.log(data)
+      this.router.navigateByUrl('');
       this._snackBar.open('User Registred Succesfully', "success",{
         horizontalPosition:'right',
         verticalPosition:'top',

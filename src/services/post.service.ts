@@ -22,4 +22,11 @@ export class PostService {
   }
 
 
+  getPost(postId: number) {
+    return this.http.get<PostDto>(this.baseUrl+'posts/'+postId);
+  }
+
+  getAllPostsByUser(name: string) {
+    return this.http.get<PostDto[]>(this.baseUrl+'posts/by-user/'+name)
+  }
 }

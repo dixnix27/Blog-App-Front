@@ -4,14 +4,13 @@
     <span class="example-spacer"></span>
 
       <div style="margin-right: 70px" *ngIf="isLoggedIn">
+        <mat-label>{{username}}</mat-label>
   <button class="font" style="margin-right: 20px;"
-          routerLink="/" mat-flat-button>MY PROFILE</button>
+          (click)="goToMyProfile()" mat-flat-button>MY PROFILE</button>
   <button class="font" style="margin-right: 20px;"
-          routerLink="/" mat-flat-button>LOGOUT</button>
+          (click)="logout()" mat-flat-button>LOGOUT</button>
       </div>
-
-
-      <div style="margin-right: 70px">
+      <div style="margin-right: 70px" *ngIf="!isLoggedIn">
     <button class="font" style="margin-right: 20px;"
             routerLink="login" mat-flat-button>LOGIN</button>
     <button class="font" style="margin-right: 20px;"

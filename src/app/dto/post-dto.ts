@@ -8,4 +8,6 @@ export class PostDto{
   voteCount:string;
   commentCount:string;
   duration:string;
+  upVote: boolean;
+  downVote:boolean;
 }

@@ -4,6 +4,7 @@ import {Loginrequest} from "./loginrequest";
 import {AuthService} from "../../../services/auth.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import { Router, ActivatedRoute } from '@angular/router';
+import {HeaderComponent} from "../../header/header.component";
 
 @Component({
   selector: 'app-login',

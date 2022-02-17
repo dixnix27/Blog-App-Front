@@ -29,6 +29,8 @@ import { CreatePostComponent } from './post/create-post/create-post.component';
 import { CreateCategoryComponent } from './categories/create-category/create-category.component';
 import {MatSelectModule} from "@angular/material/select";
 import {MatOptionModule} from "@angular/material/core";
+import { ReadPostComponent } from './post/read-post/read-post.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +43,9 @@ import {MatOptionModule} from "@angular/material/core";
     SideBarComponent,
     CategoriesComponent,
     CreatePostComponent,
-    CreateCategoryComponent
+    CreateCategoryComponent,
+    ReadPostComponent,
+    MyProfileComponent
   ],
   imports: [
     HttpClientModule,
