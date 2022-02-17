@@ -1,0 +1,22 @@
+.center-div{
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.font{
+  margin-top: 5px;
+  margin-right: 10px;
+  font-family: 'Rowdies', cursive;
+}
+
+/*.description{*/
+/*  width: 500px;*/
+/*}*/
+
+mat-form-field{
+  margin-top: 10px;
+  width: 500px;
+
+}

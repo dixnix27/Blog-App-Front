@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {PostDto} from "../app/dto/post-dto";
+import {PostRequestDto} from "../app/dto/Post-request-dto";
 
 @Injectable({
   providedIn: 'root'
@@ -15,4 +16,10 @@ export class PostService {
   getAllPosts(){
     return this.http.get<PostDto[]>(this.baseUrl+'posts')
   }
+
+  createPost(newPost: PostRequestDto) {
+    return this.http.post(this.baseUrl+'posts',newPost)
+  }
+
+
 }

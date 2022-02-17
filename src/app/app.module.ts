@@ -25,6 +25,10 @@ import { LikeComponent } from './like/like.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { CategoriesComponent } from './categories/categories.component';
 import {MatChipsModule} from "@angular/material/chips";
+import { CreatePostComponent } from './post/create-post/create-post.component';
+import { CreateCategoryComponent } from './categories/create-category/create-category.component';
+import {MatSelectModule} from "@angular/material/select";
+import {MatOptionModule} from "@angular/material/core";
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,25 +39,29 @@ import {MatChipsModule} from "@angular/material/chips";
     PostComponent,
     LikeComponent,
     SideBarComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    CreatePostComponent,
+    CreateCategoryComponent
   ],
-    imports: [
-        HttpClientModule,
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatIconModule,
-        MatToolbarModule,
-        MatCardModule,
-        MatButtonToggleModule,
-        MatButtonModule,
-        MatInputModule,
-        MatDividerModule,
-        ReactiveFormsModule,
-        MatSnackBarModule,
-        NgxWebstorageModule.forRoot(),
-        MatChipsModule
-    ],
+  imports: [
+    HttpClientModule,
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatButtonToggleModule,
+    MatButtonModule,
+    MatInputModule,
+    MatDividerModule,
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    NgxWebstorageModule.forRoot(),
+    MatChipsModule,
+    MatSelectModule,
+    MatOptionModule
+  ],
   providers: [
     AuthService,
     {

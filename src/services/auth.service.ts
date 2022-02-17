@@ -6,6 +6,7 @@ import {Loginrequest} from "../app/auth/login/loginrequest";
 import {Loginresponse} from "../app/auth/login/loginresponse";
 import {LocalStorageService} from "ngx-webstorage";
 import {map, tap} from "rxjs/operators";
+import {PostRequestDto} from "../app/dto/Post-request-dto";
 
 @Injectable({
   providedIn: 'root'
@@ -68,4 +69,7 @@ export class AuthService {
     return this.getJwtToken() != null;
   }
 
+  clear() {
+    localStorage.removeItem('authenticationToken');
+  }
 }

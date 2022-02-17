@@ -13,10 +13,10 @@
   </mat-card-content>
   <hr />
   <mat-card-footer style="margin-left: 5px">
-    <a class="btnCommments" role="button" style="text-decoration: none">
-      <mat-icon style="margin-right: 2px;"> comment</mat-icon>
-      Comments({{post.commentCount}})
-    </a>
+
+      <mat-icon style="font-size: 20px"> chat_bubble_outline</mat-icon>
+    <mat-label>Comments({{post.commentCount}})</mat-label>
+
     <button class="font"
             routerLink="login" mat-flat-button style="margin-left: 15px; margin-right: 5px">Read Post</button>
       <app-like [post]="post"></app-like>
