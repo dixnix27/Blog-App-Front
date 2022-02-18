@@ -7,6 +7,7 @@ import {CategoryResponse} from "../../dto/category-response";
 import {PostService} from "../../../services/post.service";
 import {Router} from "@angular/router";
 import {AuthService} from "../../../services/auth.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-create-post',
@@ -21,7 +22,8 @@ export class CreatePostComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private categoryService:CategoryService,
-    private postService: PostService
+    private postService: PostService,
+    private _snackBar: MatSnackBar,
   ) {
   }
 
@@ -36,7 +38,7 @@ export class CreatePostComponent implements OnInit {
       postName: ['', [Validators.required]],
       categoryName: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      url: ['', [Validators.required]],
+      url: [''],
     });
      }
 
@@ -53,9 +55,19 @@ export class CreatePostComponent implements OnInit {
     this.newPost.url = this.postForm.get('url')?.value;
 
     this.postService.createPost(this.newPost).subscribe(data => {
+      this._snackBar.open('Post created!', "Close",{
+        horizontalPosition:'center',
+        verticalPosition:'top',
+        duration:3000
+      });
       this.router.navigateByUrl('/');
+    }, error => {
+      this._snackBar.open('Error create post created!', "Close",{
+        horizontalPosition:'center',
+        verticalPosition:'top',
+        duration:3000
+      });
     })
-
   }
 }
 

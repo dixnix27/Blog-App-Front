@@ -2,56 +2,48 @@
   <mat-card style="padding: 9px 50px; background-color:  rgba(169,169,169,0.18);">
     <mat-card-header>
       <div  style="text-align: center">
-        <h2 class="font" >CREATE POST</h2>
+        <h2 class="font" style="margin-left: 150px">CREATE POST</h2>
       </div>
     </mat-card-header>
     <mat-divider></mat-divider>
-    <mat-card-content>
+    <mat-card-content   style="margin-top: 10px">
       <form [formGroup]="postForm">
         <p>
-          <mat-form-field appearance="outline" style="width: 500px">
+          <mat-form-field style="width: 500px">
             <mat-label>Name</mat-label>
             <input formControlName="postName" matInput placeholder="Email">
-<!--            <mat-error *ngIf="signUpForm?.get('email')?.invalid">-->
-<!--              Email is invalid-->
-<!--            </mat-error>-->
+            <mat-error *ngIf="postForm?.get('postName')?.invalid">
+              Name is required!
+            </mat-error>
           </mat-form-field>
         </p>
         <p>
-          <mat-form-field appearance="outline">
+          <mat-form-field>
             <mat-label>Category</mat-label>
             <mat-select formControlName="categoryName">
               <mat-option *ngFor="let category of categories" [value]="category.name">
                 {{category.name}}
               </mat-option>
             </mat-select>
-
-<!--            <input formControlName="categoryName" matInput placeholder="User Name">-->
-<!--            <mat-error *ngIf="signUpForm?.get('username')?.invalid">-->
-<!--              User is required-->
-<!--            </mat-error>-->
+            <mat-error *ngIf="postForm?.get('categoryName')?.invalid">
+              Category is required!
+            </mat-error>
           </mat-form-field>
         </p>
         <p>
-          <mat-form-field class="description" appearance="outline">
+          <mat-form-field class="description">
           <mat-label>Description</mat-label>
           <textarea matInput formControlName="description" placeholder="Ex. It makes me feel..."></textarea>
+            <mat-error *ngIf="postForm?.get('description')?.invalid">
+              Description is required!
+            </mat-error>
         </mat-form-field>
-        </p>
-        <p>
-          <mat-form-field appearance="outline">
-            <mat-label>Url</mat-label>
-            <input formControlName="url" matInput placeholder="User Name">
-            <!--            <mat-error *ngIf="signUpForm?.get('username')?.invalid">-->
-            <!--              User is required-->
-            <!--            </mat-error>-->
-          </mat-form-field>
         </p>
       </form>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-flat-button color="primary" style="margin-bottom: 20px;margin-left: 57px"
-               (click)="onCreate()">Create</button>
+      <button mat-flat-button color="primary" style="margin-bottom: 20px;margin-left: 220px"
+               (click)="onCreate()" [disabled]="postForm.invalid" >Create</button>
     </mat-card-actions>
   </mat-card>
 

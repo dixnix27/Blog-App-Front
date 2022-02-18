@@ -8,6 +8,7 @@ import {CreateCategoryComponent} from "./categories/create-category/create-categ
 import {ReadPostComponent} from "./post/read-post/read-post.component";
 import {MyProfileComponent} from "./my-profile/my-profile.component";
 import {AuthGuard} from "./auth/auth.guard";
+import {PostComponent} from "./post/post.component";
 
 const routes: Routes = [
   {path:'sign-up',component:SignupComponent},
@@ -16,7 +17,9 @@ const routes: Routes = [
   {path:'create-post',component:CreatePostComponent, canActivate: [AuthGuard]},
   {path:'create-category',component:CreateCategoryComponent, canActivate: [AuthGuard]},
   {path:'view-post/:id',component:ReadPostComponent},
-  {path:'my-profile/:name',component:MyProfileComponent, canActivate: [AuthGuard]}
+  {path:'my-profile/:name',component:MyProfileComponent, canActivate: [AuthGuard]},
+  {path:'view-category/:id',component:HomeComponent},
+  {path:'by-user/:username',component:HomeComponent},
 
 
 

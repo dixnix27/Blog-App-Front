@@ -8,7 +8,7 @@
   opacity: 0.6;
 }
 
-.subreddit-text {
+.category-text {
   font-weight: bold;
 }
 
@@ -28,18 +28,17 @@
   --post-line-color: #ccc;
   border: 1px solid #ccc;
   margin-top: 10px;
+  margin-right: 25px;
   margin-bottom: 10px;
   overflow: hidden;
   background-color: rgba(255,255,255,0.8);
   color: #878A8C;
   position: relative;
-  border-radius: 4px;
   padding:5px;
 }
 
 .comment{
   --post-line-color: #ccc;
-  border: 1px solid #ccc;
   margin-bottom: 10px;
   overflow: hidden;
   background-color: rgba(255,255,255,0.8);
@@ -48,3 +47,9 @@
   border-radius: 4px;
   padding:5px;
 }
+.font{
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.2;
+}
+
+

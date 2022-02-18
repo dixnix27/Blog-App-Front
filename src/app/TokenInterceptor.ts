@@ -45,7 +45,7 @@ export class TokenInterceptor implements HttpInterceptor {
           if (error.status === 403 || error.status === 401) {
             console.warn('Logout reason:', error);
             this.authService.clear();
-            location.href = "/";
+            // location.href = "/";
           }
         },
       ),

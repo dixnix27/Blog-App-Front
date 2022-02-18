@@ -1,23 +1,25 @@
 .sidebar-view-category {
   width: 312px;
-  height: 180px;
+  height: 230px;
   --post-line-color: #ccc;
-  border: 1px solid #ccc;
+  border: 1px solid rgba(136, 136, 136, 0.29);
   margin-bottom: 10px;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.8);
   color: #878A8C;
   position: relative;
-  border-radius: 4px;
   padding: 5px;
-  margin-top: 10px;
-  font-family: 'Rowdies', cursive;
+  margin-top: 30px;
 }
 
+.font{
+  font-family: 'Montserrat', sans-serif;
+}
 .viewAll{
   width: 288px;
   height: 34px;
-  margin-top: 5px;
+  margin-top: 25px;
+  margin-left: 5px;
   color: #0079D3;
   background-color: rgba(203, 202, 202, 0.47);
 }

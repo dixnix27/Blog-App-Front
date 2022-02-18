@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {PostDto} from "../dto/post-dto";
 import {PostService} from "../../services/post.service";
 import {AuthService} from "../../services/auth.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -13,12 +14,31 @@ export class HomeComponent implements OnInit {
   @Output() loggedIn: EventEmitter<boolean> = new EventEmitter();
 
 posts:PostDto[]=[];
+category:number;
+user:string;
 isLoggedIn :boolean;
   constructor(private postService:PostService,
-              private authService:AuthService) {
-    this.postService.getAllPosts().subscribe(resp => {
-      this.posts = resp;
-    })
+              private authService:AuthService,
+              private activatedRoute:ActivatedRoute) {
+    // view by category
+    this.category=this.activatedRoute.snapshot.params.id;
+    this.user=this.activatedRoute.snapshot.params.username;
+    if(this.category!=null){
+      this.postService.getAllPostsByCategory(this.category).subscribe(resp => {
+        this.posts = resp;
+      })
+    }else if(this.user!=null){
+      this.postService.getAllPostsByUser(this.user).subscribe(resp => {
+        this.posts = resp;
+      })
+    }
+    // view all posts
+    else{
+      this.postService.getAllPosts().subscribe(resp => {
+        this.posts = resp;
+      })
+    }
+
   }
 
   ngOnInit(): void {

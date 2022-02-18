@@ -29,4 +29,8 @@ export class PostService {
   getAllPostsByUser(name: string) {
     return this.http.get<PostDto[]>(this.baseUrl+'posts/by-user/'+name)
   }
+
+  getAllPostsByCategory(id: number) {
+    return this.http.get<PostDto[]>(this.baseUrl+'posts/by-category/'+id)
+  }
 }

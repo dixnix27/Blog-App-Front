@@ -31,6 +31,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatOptionModule} from "@angular/material/core";
 import { ReadPostComponent } from './post/read-post/read-post.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
+import {MatMenuModule} from "@angular/material/menu";
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,25 +48,26 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
     ReadPostComponent,
     MyProfileComponent
   ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatButtonToggleModule,
-    MatButtonModule,
-    MatInputModule,
-    MatDividerModule,
-    ReactiveFormsModule,
-    MatSnackBarModule,
-    NgxWebstorageModule.forRoot(),
-    MatChipsModule,
-    MatSelectModule,
-    MatOptionModule
-  ],
+    imports: [
+        HttpClientModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatCardModule,
+        MatButtonToggleModule,
+        MatButtonModule,
+        MatInputModule,
+        MatDividerModule,
+        ReactiveFormsModule,
+        MatSnackBarModule,
+        NgxWebstorageModule.forRoot(),
+        MatChipsModule,
+        MatSelectModule,
+        MatOptionModule,
+        MatMenuModule
+    ],
   providers: [
     AuthService,
     {

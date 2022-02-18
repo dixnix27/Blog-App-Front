@@ -2,14 +2,31 @@
     <mat-icon class="logo" routerLink="/">donut_small</mat-icon>
     <span class="title" > BLOG APP</span>
     <span class="example-spacer"></span>
-
-      <div style="margin-right: 70px" *ngIf="isLoggedIn">
-        <mat-label>{{username}}</mat-label>
-  <button class="font" style="margin-right: 20px;"
-          (click)="goToMyProfile()" mat-flat-button>MY PROFILE</button>
-  <button class="font" style="margin-right: 20px;"
-          (click)="logout()" mat-flat-button>LOGOUT</button>
+  <mat-form-field style="margin-right: 600px; font-size: 15px;
+width: 600px">
+    <input #search matInput placeholder="Search a post">
+        <button mat-icon-button style="background-color: rgba(161,161,161,0.55)" (click)="onSearch(search.value)">
+    <mat-icon >search</mat-icon>
+        </button>
+  </mat-form-field>
+  <div style="margin-right: 70px" *ngIf="isLoggedIn">
+        <button mat-icon-button [matMenuTriggerFor]="menu" style="background-color: rgba(126,149,162,0.51)">
+          {{username.charAt(0).toLocaleUpperCase()}}
+        </button>
+        <mat-menu #menu="matMenu">
+          <mat-label style="font-size: 15px;font-weight: bold; margin-left: 40px; text-align: center">Hello {{username}}!</mat-label>
+          <hr/>
+          <button mat-menu-item class="menu-item" (click)="goToMyProfile()">
+            <mat-icon>visibility</mat-icon>
+            <span >My Profile</span>
+          </button>
+          <button mat-menu-item class="menu-item" (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span >Logout</span>
+          </button>
+        </mat-menu>
       </div>
+
       <div style="margin-right: 70px" *ngIf="!isLoggedIn">
     <button class="font" style="margin-right: 20px;"
             routerLink="login" mat-flat-button>LOGIN</button>

@@ -1,6 +1,7 @@
-<mat-card class="row post" *ngFor="let post of posts">
+<div class="row post fonts" *ngFor="let post of posts">
   <mat-card-subtitle style="margin-top: 8px">
-    <span> Posted {{post.duration}} by <b>{{post.userName}}</b></span>
+    <span> Posted {{post.duration}} by <b style="color: #0079D3; font-size: 15px;
+     cursor:pointer; text-decoration: underline " routerLink="by-user/{{post.userName}}">{{post.userName}}</b></span>
   </mat-card-subtitle>
   <mat-card-title>
     <hr/>
@@ -11,14 +12,14 @@
   <mat-card-content>
     <p class="post-text">{{post.description}}</p>
   </mat-card-content>
-  <hr />
-  <mat-card-footer style="margin-left: 5px">
 
-      <mat-icon style="font-size: 20px"> chat_bubble_outline</mat-icon>
-    <mat-label>Comments({{post.commentCount}})</mat-label>
+  <mat-card-footer style="margin-left: 5px">
+    <hr />
+      <mat-icon style="font-size: 20px; vertical-align: middle">comment</mat-icon>
+    <mat-label >({{post.commentCount}})</mat-label>
 
     <button class="font"
             (click)="goToPost(post.id)" mat-flat-button style="margin-left: 15px; margin-right: 5px">Read Post</button>
       <app-like [post]="post"></app-like>
   </mat-card-footer>
-</mat-card>
+</div>

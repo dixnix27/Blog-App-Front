@@ -2,13 +2,12 @@
   width: 312px;
   height: 242px;
   --post-line-color: #ccc;
-  border: 1px solid rgba(7, 47, 87, 0.29);
+  border: 1px solid rgba(136, 136, 136, 0.29);
   margin-bottom: 10px;
   overflow: hidden;
   background-color: rgba(255,255,255,0.8);
   color: #878A8C;
   position: relative;
-  border-radius: 4px;
   padding:5px;
   margin-top: 10px;
 }
@@ -24,11 +23,8 @@
 .btnCreatePost:hover, .btnCreateCategory:hover {
   background-color: rgb(7, 47, 87);
   color: white;
+  font-weight: bold;
 }
-
-/*.sidebar>ul>li{*/
-/*  font-size: 16px;*/
-/*  font-weight: 500;*/
-/*  line-height: 20px;*/
-/*  color: #1c1c1c;*/
-/*}*/
+.fonts button{
+  font-family: 'Montserrat', sans-serif;
+}

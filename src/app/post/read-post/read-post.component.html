@@ -1,42 +1,44 @@
-<div class="container">
+<div class="container font" >
   <div class="row">
     <hr />
     <div class="col-md-9">
       <div class="row post">
-        <div class="col-md-1">
+        <div>
           <app-like [post]="post"></app-like>
         </div>
         <div class="col-md-11">
           <span>
-            <span class="subreddit-text"><a class="post-url" href="">{{post.categoryName}}</a></span>
+            <span class="category-text"><a class="post-url" href="" style="text-decoration: none; cursor: default">Category - {{post.categoryName}}</a></span>
             <span> . Posted
               <span> {{post.duration}} </span>
               by
               <a *ngIf="post.userName === null" class="username" href="">Anonymous</a>
-              <a *ngIf="post.userName != null" class="username" href="">{{post.userName}}</a>
+              <a *ngIf="post.userName != null" class="username" href="by-user/{{post.userName}}" style="color: #0079D3">{{post.userName}}</a>
             </span>
           </span>
           <hr />
-          <a routerLink="post.url" class="post-title">{{post.postName}}</a>
+          <h1 class="font" style="font-weight: bold; font-size: 30px">{{post.postName}}</h1>
           <div>
-            <p class="post-text" [innerHtml]="post.description"></p>
+            <p class="post-text" style="font-size: 20px">{{post.description}}</p>
           </div>
+          <hr/>
           <div class="post-comment">
             <form [formGroup]="commentForm" (ngSubmit)="postComment()">
-              <div class="form-group">
-                <textarea class="form-control" [formControlName]="'text'" placeholder="Your Thoughts?"></textarea>
+              <div class="form-group" style="margin-top: 5px">
+            <mat-form-field class="description"  style="width: 870px" appearance="fill">
+                <mat-label class="font" style="font-weight: bold;font-size: 17px">Post a comment</mat-label>
+                <textarea matInput formControlName="text" placeholder="Ex. It makes me feel..."></textarea>
+              </mat-form-field>
               </div>
-              <button type="submit" class="login float-right">Comment</button>
+              <button type="submit" mat-flat-button color="primary">Comment</button>
             </form>
           </div>
-          <div style="margin-top: 60px;" *ngFor="let comment of comments">
+          <div style="margin-top: 20px; border: none" *ngFor="let comment of comments">
             <div class="comment">
               <div class="username">
-                <a routerLink="/user/comment.username">{{comment.userName}}</a>
+                <a style="cursor: pointer" href="by-user/{{comment.userName}}">{{comment.userName}}</a> - {{comment.duration}}
               </div>
-              <div>
-                <p>{{comment.duration}}</p>
-              </div>
+              <br>
               <b>{{comment.text}}</b>
             </div>
             <hr />

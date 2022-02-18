@@ -41,16 +41,15 @@ export class LoginComponent implements OnInit {
     }))
 
     this.authService.login(this.login).subscribe(data=>{
-      console.log(data)
-      this._snackBar.open('Welcome '+ this.login.username+ '!', "success",{
-        horizontalPosition:'right',
+      this._snackBar.open('Welcome '+ this.login.username+ '!', "Close",{
+        horizontalPosition:'center',
         verticalPosition:'top',
         duration:3000
       });
       this.router.navigateByUrl('');
     }, error => {
       this._snackBar.open('Error! Password / User not correct', "error",{
-        horizontalPosition:'right',
+        horizontalPosition:'center',
         verticalPosition:'top',
         duration:3000
       });

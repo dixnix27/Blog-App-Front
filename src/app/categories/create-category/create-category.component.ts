@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CategoryService} from "../../../services/category.service";
 import {Router} from "@angular/router";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 export class CategoryRequestDto {
 name?:string;
@@ -21,6 +22,7 @@ export class CreateCategoryComponent implements OnInit {
     private categoryService:CategoryService,
     private fb: FormBuilder,
     private router: Router,
+    private _snackBar: MatSnackBar,
   ) { }
 
   ngOnInit(): void {
@@ -39,8 +41,18 @@ export class CreateCategoryComponent implements OnInit {
     this.newCategory.description = this.categoryForm.get('description')?.value;
 
     this.categoryService.createCategory(this.newCategory).subscribe(data=>{
-      this.router.navigateByUrl('/');
+      this._snackBar.open('Category created!', "Close",{
+        horizontalPosition:'center',
+        verticalPosition:'top',
+        duration:3000
+      });
+      this.router.navigateByUrl('');
+    }, error => {
+      this._snackBar.open('Error create category', "error",{
+        horizontalPosition:'center',
+        verticalPosition:'top',
+        duration:3000
+      });
     })
-
   }
 }
