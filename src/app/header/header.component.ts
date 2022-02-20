@@ -39,7 +39,8 @@ export class HeaderComponent implements OnInit {
   }
 
   onSearch(s:string) {
-    console.log(s)
-    // this.router.navigateByUrl('/by-user/'+s);
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+        this.router.navigate(['/by-user/' + s]));
+
   }
 }

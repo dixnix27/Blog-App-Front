@@ -1,15 +1,13 @@
-<div class="sidebar-view-category font">
+<div class="sidebar-view-category font"[style.overflow]="'auto'" [style.overflow-x]="'hidden'" style="height: 247px">
   <div style="margin-top: 10px">
   <mat-card-title style="color: black; font-weight: bold;margin-left: 92px">Categories</mat-card-title></div>
   <hr />
   <mat-chip-list>
-  <mat-card-content *ngFor="let category of categories">
+  <mat-card-content
+                    *ngFor="let category of categories">
         <mat-chip color="primary" selected><a href="/view-category/{{category.id}}"  style="color: white;text-decoration: none">{{category.name}}</a></mat-chip>
     </mat-card-content>
 </mat-chip-list>
-  <mat-card-footer style="text-align: center;margin-top: -10px">
-    <button class="viewAll font" routerLink="/categories" mat-button >View All</button>
-  </mat-card-footer>
 </div>
 
 

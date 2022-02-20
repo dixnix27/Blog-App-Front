@@ -23,6 +23,12 @@ isLoggedIn :boolean;
     // view by category
     this.category=this.activatedRoute.snapshot.params.id;
     this.user=this.activatedRoute.snapshot.params.username;
+  }
+
+  ngOnInit(): void {
+    console.log('a')
+    this.authService.loggedIn.subscribe((data:boolean) => this.isLoggedIn = data);
+
     if(this.category!=null){
       this.postService.getAllPostsByCategory(this.category).subscribe(resp => {
         this.posts = resp;
@@ -30,6 +36,7 @@ isLoggedIn :boolean;
     }else if(this.user!=null){
       this.postService.getAllPostsByUser(this.user).subscribe(resp => {
         this.posts = resp;
+        console.log(this.posts)
       })
     }
     // view all posts
@@ -38,11 +45,6 @@ isLoggedIn :boolean;
         this.posts = resp;
       })
     }
-
-  }
-
-  ngOnInit(): void {
-    this.authService.loggedIn.subscribe((data:boolean) => this.isLoggedIn = data);
   }
 
 }

@@ -19,13 +19,13 @@ export class CategoriesComponent implements OnInit {
 
   getCategories(){
     this.categoryService.getAllCategories().subscribe( resp => {
-      if(resp.length>=5){
-        this.categories = resp.splice(0,4);
-        this.displayViewAll = true;
-      } else{
+      // if(resp.length>=5){
+      //   this.categories = resp.splice(0,4);
+      //   this.displayViewAll = true;
+      // } else{
         this.categories = resp;
-      }
-    })
+      // }
+    });
   }
 
 }

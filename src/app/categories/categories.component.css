@@ -1,10 +1,12 @@
 .sidebar-view-category {
+  /*min-height: 100px;*/
+  /*max-height: 200px;*/
   width: 312px;
-  height: 230px;
+  height: 270px;
   --post-line-color: #ccc;
   border: 1px solid rgba(136, 136, 136, 0.29);
   margin-bottom: 10px;
-  overflow: hidden;
+  /*overflow: hidden;*/
   background-color: rgba(255, 255, 255, 0.8);
   color: #878A8C;
   position: relative;
